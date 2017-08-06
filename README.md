@@ -15,7 +15,7 @@ git clone https://github.com/enamshah09/RallyPlugin.git /opt/ownPlugin
 mv setupLvmEnv.sh /opt
 mv vars.rc /opt
 ```
-3. Run the following file that will install Rally and run the Plugin to Evacuate Host
+3. The following command will install Rally and run the Live Migration Plugin to Evacuate Host
 ```
 ./setupLvmEnv.sh
 ```
