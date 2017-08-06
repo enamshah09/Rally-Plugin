@@ -1,4 +1,4 @@
-# Rally Plugin
+# Introduction
 
 This Plugin will install Rally and run the Live Migration Plugin. 
 
