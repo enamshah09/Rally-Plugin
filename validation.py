@@ -35,6 +35,8 @@ from rally.task import types
 import traceback
 from rally.common import logging
 
+LOG = logging.getLogger(__name__)
+
 # TODO(boris-42): make the validators usable as a functions as well.
 # At the moment validators can only be used as decorators.
 
@@ -452,7 +454,7 @@ def required_services(config, clients, deployment, *required_services):
     for line in traceback.format_stack():
         print(line.strip())
 
-    convertedClient = osclients.Clients(clients["credential"])
+    #convertedClient = osclients.Clients(clients["credential"])
 
     LOG.debug(clients.services())
 
