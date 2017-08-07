@@ -51,11 +51,9 @@ rally deployment destroy testDeploy1
 rally deployment create --file=credentials.json --name=testDeploy1
 rally deployment use testDeploy1
 
-rallytask_arg="'{\"image_name\": \"$image_name\", \"flavor_name\":\"$flavor_name\", \"block_migration\": false, \"host_to_evacuate\": \"$host_to_evacuate\", \"destination_host\": \"$destination_host\"}'"
+#rallytask_arg="'{\"image_name\": \"$image_name\", \"flavor_name\":\"$flavor_name\", \"block_migration\": false, \"host_to_evacuate\": \"$host_to_evacuate\", \"destination_host\": \"$destination_host\"}'"
 
-#rally --debug --plugin-paths nova_live_migration.py task start task.json --task-args '{"image_name": "Ubuntu16.04", "flavor_name": "m1.small", "block_migration": true, "host_to_evacuate": "cloudCompute1", "destination_host": "cloudCompute2"}'
-
-rally --debug --plugin-paths nova_live_migration.py task start task.json --task-args $rallytask_arg
+rally --debug --plugin-paths nova_live_migration.py task start task.json --task-args '{"image_name": "Ubuntu16.04", "flavor_name": "m1.small", "block_migration": true, "host_to_evacuate": "cloudCompute1", "destination_host": "cloudCompute2"}'
 
 
 
