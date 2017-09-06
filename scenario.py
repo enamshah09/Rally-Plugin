@@ -187,7 +187,7 @@ class Scenario(plugin.Plugin,
         LOG.debug(users)
 
         if admin:
-            cls._validate_helper(admin_validators, admin, config, deployment)
+            cls._validate_helper(admin_validators, osclients.Clients(user["credential"]), config, deployment)
         if users:
             for user in users:
                 cls._validate_helper(user_validators, osclients.Clients(user["credential"]), config, deployment)
