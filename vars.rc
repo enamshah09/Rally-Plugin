@@ -1,5 +1,5 @@
 key_name="lm_key"
 image_name="Ubuntu16.04"
-flavor_name="m1.small"
-host_to_evacuate="cloudCompute1"
-destination_host="cloudCompute2"
+flavor_name="m1.medium"
+host_to_evacuate="computecos3"
+destination_host="computecos2"
