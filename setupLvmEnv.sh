@@ -7,7 +7,12 @@ cd /opt
 
 # create the environment 
 if [ `openstack flavor list | grep m1 -c` -eq 0 ]; then
+  #nova flavor-create {flavor-name} {flavor-id} {Memory_MB} {Disk-GB} {VCPUs}
+  nova flavor-create m1.tiny 1 512 1 1;
   nova flavor-create m1.small 2 2048 20 1;
+  nova flavor-create m1.medium 3 4096 40 2;
+  nova flavor-create m1.large 4 8192 80 4;
+  nova flavor-create m1.xlarge 5 16384 160 8;
 fi
 
 if [ `openstack keypair list | grep $key_name -c` -eq 0 ]; then
@@ -40,22 +45,24 @@ cd /opt/rally/
 rm -r /opt/ownPlugin
 git clone https://github.com/enamshah09/RallyPlugin.git /opt/ownPlugin
 cd /opt/ownPlugin
-rm -r /usr/local/lib/python2.7/dist-packages/rally/validation.py
-rm -r /usr/local/lib/python2.7/dist-packages/rally/scenario.py
+rm -r /usr/local/lib/python2.7/dist-packages/rally/task/validation.py
+rm -r /usr/local/lib/python2.7/dist-packages/rally/task/scenario.py
 cp validation.py /usr/local/lib/python2.7/dist-packages/rally/task/
 cp scenario.py /usr/local/lib/python2.7/dist-packages/rally/task/
 chown root:staff /usr/local/lib/python2.7/dist-packages/rally/task/validation.py
 chown root:staff /usr/local/lib/python2.7/dist-packages/rally/task/scenario.py
 
-rally deployment destroy testDeploy1
-rally deployment create --file=credentials.json --name=testDeploy1
-rally deployment use testDeploy1
+#Depending on which user you want to use
+rally deployment destroy demoEvacuate
+rally deployment create --file=demoCredentials.json --name=demoEvacuate
+rally deployment use demoEvacuate
 
-#rallytask_arg="'{\"image_name\": \"$image_name\", \"flavor_name\":\"$flavor_name\", \"block_migration\": false, \"host_to_evacuate\": \"$host_to_evacuate\", \"destination_host\": \"$destination_host\"}'"
+#For the host Evacuation it is always the admin who has permissions to migrate
+rally deployment destroy adminEvacuate
+rally deployment create --file=adminCredentials.json --name=adminEvacuate
+rally deployment use adminEvacuate
 
-rally --debug --plugin-paths nova_live_migration.py task start task.json --task-args '{"image_name": "Ubuntu16.04", "flavor_name": "m1.small", "block_migration": true, "host_to_evacuate": "cloudCompute1", "destination_host": "cloudCompute2"}'
-
-
-
+#Evacuate host
+rally --debug --plugin-paths nova_live_migration.py task start task.json --task-args '{"image_name": "Ubuntu16.04", "flavor_name": "m1.medium", "block_migration": false, "host_to_evacuate": "computecos2", "destination_host": "computecos3"}'
 
 
