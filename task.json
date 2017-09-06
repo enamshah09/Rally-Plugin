@@ -14,7 +14,7 @@
             },
             "runner": {
                 "type": "serial",
-                "times": 5
+                "times": 1
             },
             "context": {
                 "api_versions":{
