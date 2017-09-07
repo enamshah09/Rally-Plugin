@@ -4,7 +4,7 @@ This Plugin will install Rally and run the Live Migration Plugin.
 
 ## **Steps**
 
-Assuming you have [multi-node devstack install](https://docs.openstack.org/devstack/latest/guides/multinode-lab.html). After you clone the repo remember to change the IP of the controller in `credentials.json` and `vars.rc` file to chnage the source and destination host.
+Assuming you have [multi-node devstack install](https://docs.openstack.org/devstack/latest/guides/multinode-lab.html). After you clone the repo remember to change the IP of the controller in `adminCredentials.json`, `demoCredentials.json` and in `vars.rc` file to chnage the source and destination host.
 
 1. Clone the repo and change the directory to `cd /opt`
 ```
