@@ -52,12 +52,15 @@ cp scenario.py /usr/local/lib/python2.7/dist-packages/rally/task/
 chown root:staff /usr/local/lib/python2.7/dist-packages/rally/task/validation.py
 chown root:staff /usr/local/lib/python2.7/dist-packages/rally/task/scenario.py
 
+#For the host Evacuation it is always the admin who has permissions to migrate
 #Depending on which user you want to use
+
+#demo User
 rally deployment destroy demoEvacuate
 rally deployment create --file=demoCredentials.json --name=demoEvacuate
 rally deployment use demoEvacuate
 
-#For the host Evacuation it is always the admin who has permissions to migrate
+#admin User
 rally deployment destroy adminEvacuate
 rally deployment create --file=adminCredentials.json --name=adminEvacuate
 rally deployment use adminEvacuate
