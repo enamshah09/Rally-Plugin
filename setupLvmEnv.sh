@@ -56,9 +56,9 @@ chown root:staff /usr/local/lib/python2.7/dist-packages/rally/task/scenario.py
 #Depending on which user you want to use
 
 #demo User
-rally deployment destroy demoEvacuate
-rally deployment create --file=demoCredentials.json --name=demoEvacuate
-rally deployment use demoEvacuate
+#rally deployment destroy demoEvacuate
+#rally deployment create --file=demoCredentials.json --name=demoEvacuate
+#rally deployment use demoEvacuate
 
 #admin User
 rally deployment destroy adminEvacuate
