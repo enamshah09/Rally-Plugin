@@ -183,11 +183,11 @@ class Scenario(plugin.Plugin,
         # NOTE(boris-42): Potential bug, what if we don't have "admin" client
         #                 and scenario have "admin" validators.
 
-        LOG.debug('------------------------------------------------------------')
-        LOG.debug(users)
+        #LOG.debug('------------------------------------------------------------')
+        #LOG.debug(users)
 
-        if admin:
-            cls._validate_helper(admin_validators, osclients.Clients(user["credential"]), config, deployment)
+        #if admin:
+        #    cls._validate_helper(admin_validators, osclients.Clients(user["credential"]), config, deployment)
         if users:
             for user in users:
                 cls._validate_helper(user_validators, osclients.Clients(user["credential"]), config, deployment)
