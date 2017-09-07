@@ -1,7 +1,7 @@
 #Ensure the name in host_to_evacuate and destination_host are in lower case otherwise it won't be able to find the servers on the respective hypervisors
 
 key_name="lm_key"
-image_name="Ubuntu16.04"
-flavor_name="m1.medium"
-host_to_evacuate="computecos3"
-destination_host="computecos2"
+image_name="Your Image"
+flavor_name="Flavor"
+host_to_evacuate="Host to Evacuate"
+destination_host="Destination host"
