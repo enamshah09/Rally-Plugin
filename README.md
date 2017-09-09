@@ -1,6 +1,6 @@
 # Introduction
 
-This Plugin will install Rally and run the Live Migration Plugin. 
+[Rally](http://rally.readthedocs.io/en/latest/plugins/index.html) is benchmarking tool to test your openstack environment. Rally provides an opportunity to create and use a custom task scenario, runner, SLA, deployment or context as a plugin. This plugin will install Rally and run the Live Migration test to evacuate a host.
 
 ## **Steps**
 
